@@ -10,7 +10,7 @@ const webHook = config.webHook;
 let data = '';
 if (channel && webHook) {
   stdin.on('data', (chunk) => {
-    data += chunk + '\n';
+    data += chunk;
   });
 
   stdin.on('end', () => {
