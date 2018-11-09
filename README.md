@@ -1,11 +1,11 @@
-# pipe-to-slack
+# pipe-to-slack-block
 
-Pipe any command line output to a slack channel or private message
+Pipe any command line output to a slack channel or private message as a code block
 
 ## Installation
 
 ```
-npm install -g pipe-to-slack
+npm install -g pipe-to-slack-block
 ```
 
 ## Configuration
@@ -24,14 +24,14 @@ username="Pipe Bot"
 All you need to do is pipe the command into `p2s`.
 
 ```
-<command> | p2s <channel or @person>
+<command> | p2sb <channel or @person>
 ```
 *the channel/person argument is optional*
 
 For example:
 
 ```
-cat someFile.txt | p2s "#SomeChannelInSlack"
+cat someFile.txt | p2sb "#SomeChannelInSlack"
 ```
 
 ## Why?
@@ -39,5 +39,9 @@ cat someFile.txt | p2s "#SomeChannelInSlack"
 My use case is when working with a distributed team it's nice sometimes to demonstrate some particular output from a command. e.g.
 
 ```
-npm test | p2s "@myMateDave"
+npm test | p2sb "@myMateDave"
 ```
+
+## Acknowlegement
+
+Based on `pipe-to-slack` by Clarkie, original repository at: https://github.com/clarkie/pipe-to-slack
