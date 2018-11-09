@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-'use strict'
+'use strict';
 
 const axios = require('axios');
 const stdin = process.openStdin();
@@ -10,16 +10,15 @@ const webHook = config.webHook;
 let data = '';
 if (channel && webHook) {
   stdin.on('data', (chunk) => {
-    axios.post(config.webHook, {
-      channel: channel,
-      username: config.username || 'Pipe Bot',
-      text: chunk.toString('utf8'),
-      icon_emoji: ':printer:',
-    });
-    data += chunk;
+    data += chunk + '\n';
   });
 
   stdin.on('end', () => {
-    console.log('PIPE TO SLACK COMPLETED');
+      axios.post(config.webHook, {
+          channel: channel,
+          username: config.username || 'Pipe Bot',
+          text: '```' + data.toString('utf8') + '```',
+          icon_emoji: ':printer:',
+      });
   });
 }
